@@ -22,9 +22,9 @@ namespace CustomerCoreApi.Controllers
         }
         [HttpGet]
         [Route("{id:guid}")]
-        public IActionResult GetCustomerID(Guid id)
+        public IActionResult GetCustomerID(Guid CustomerId)
         {
-            var customer = _dbContext.Customers.Find(id);
+            var customer = _dbContext.Customers.Find(CustomerId);
             if (customer == null)
             {
                 return NotFound();
@@ -47,9 +47,9 @@ namespace CustomerCoreApi.Controllers
         }
         [HttpPut]
         [Route("{id:guid}")]
-        public IActionResult UpdateCustomer(Guid id, Customer customer)
+        public IActionResult UpdateCustomer(Guid CustomerId, Customer customer)
         {
-            var existingCustomer = _dbContext.Customers.Find(id);
+            var existingCustomer = _dbContext.Customers.Find(CustomerId);
             if (existingCustomer == null)
             {
                 return NotFound();
@@ -63,9 +63,9 @@ namespace CustomerCoreApi.Controllers
         }
         [HttpDelete]
         [Route("{id:guid}")]
-        public IActionResult DeleteCustomer(Guid id)
+        public IActionResult DeleteCustomer(Guid CustomerId)
         {
-            var existingCustomer = _dbContext.Customers.Find(id);
+            var existingCustomer = _dbContext.Customers.Find(CustomerId);
             if (existingCustomer == null)
             {
                 return NotFound();
